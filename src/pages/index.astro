@@ -1,11 +1,55 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import data from "../message.json"
+const JSONData = data.features.map(itm => itm.faq).flat()
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="زومن">
+		<section class="p-8">
+			<div class="text-center lg:m-4">
+				<p class="font-light text-xs lg:text-base md:text-base">
+					<span class="hidden md:inline font-medium lg:inline border-solid border border-black px-6 py-2.5 rounded-full">
+						لنجعلك تضيء مثل 
+						<a href="#" class="font-bold bg-gradient-to-r from-[#7F60F9] to-[#00F0FF] bg-clip-text text-transparent"> نجم في سماك						<svg xmlns="http://www.w3.org/2000/svg" class="size-6 inline bg-gradient-to-r from-[#7F60F9] to-[#00F0FF] bg-clip-text text-transparent" viewBox="0 0 24 24">
+								<defs> <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%"> <stop offset="0%" style="stop-color:#7F60F9;stop-opacity:1" /> <stop offset="100%" style="stop-color:#00F0FF;stop-opacity:1" /> </linearGradient> </defs>
+								<path fill="none" stroke="url(#gradient)" stroke-width="1.5" d="m11.924 8.8l-.358-.205c-.393-.223-.59-.335-.723-.522c-.134-.187-.19-.427-.301-.908l-.102-.437c-.394-1.692-.59-2.538-1.157-2.702m2.64 4.773c1.383.787 2.075 1.181 2.099 1.841s-.635 1.15-1.953 2.13l-.34.253c-.375.278-.562.417-.681.622m.876-4.846l7.62 2.11m-9.752 6.983c.551-.244.685-1.113.953-2.852l.069-.45c.076-.494.114-.74.233-.945m-1.255 4.247s-1.156-.3-2.364-1.386l-.312-.282c-.344-.308-.515-.463-.723-.523s-.427-.02-.867.062l-.4.075c-1.549.287-2.323.43-2.688-.08c-.365-.509-.08-1.334.492-2.985l.148-.427c.162-.469.243-.703.234-.945s-.107-.464-.302-.908l-.179-.404c-.688-1.56-1.033-2.341-.707-2.9s1.106-.525 2.667-.459l.404.017c.444.02.665.029.867-.06c.203-.09.362-.268.68-.624l.291-.324c1.122-1.252 1.683-1.878 2.25-1.713m.509 13.866l6.547 1.899c.693.201 1.04.302 1.399.096c.358-.206.457-.515.654-1.132c.128-.4.249-.871.33-1.4l.07-.45c.076-.495.114-.742.233-.946m-7.977-2.314l7.977 2.314M9.283 4.026L17.26 6.34c.566.164.763 1.01 1.156 2.702l.102.437c.112.481.168.722.302.908s.33.299.723.522m0 0l.357.204c1.383.788 2.074 1.181 2.098 1.842c.025.66-.634 1.15-1.952 2.128l-.34.254c-.375.278-.562.417-.682.622"/>
+							</svg>
+						</a>
+					</span>
+				</p>
+			</div>
+			<div class="text-center m-4 lg:py-8 flex items-center justify-center">
+				<div class="max-w-[525px]">
+					<p class="text-2xl font-semibold text-[#3F3D56]">
+					مرحبًا بك في
+					<span class="bg-gradient-to-r from-[#7F60F9] to-[#00F0FF] bg-clip-text text-transparent">
+						زومن
+					</span> 
+					<br />
+					<span class="font-normal text-xl">
+						نصنع الفرق،  بحلول تسويق إبداعية لتصل إلى عملائك المستهدفين بأذكى الحلول التسويقية وأكثرها تأثيراً
+					</span>
+				</p>
+				<div class="pt-5">
+					<p class="font-light text-xs lg:text-base md:text-base">
+						نصنع رؤية تسويقية مبتكرة لبناء علامتك التجارية لتحقيق أهدافك
+					</p>
+				</div>
+				</div>
+				
+			</div>
+			<!-- <div class="grid grid-cols-1 lg:flex md:flex justify-center gap-3.5 min-w-36 px-16">
+				<a role="button"
+				href="https://dashboard.doclabs.app/"
+				class="text-center bg-gradient-to-r from-[#7F60F9] to-[#00F0FF] text-white py-2 px-8 rounded-xl font-medium">
+						Get Started
+				</a>
+				<a role="button"
+				href="https://dashboard.doclabs.app/#/login"
+				class="py-2 px-8 rounded-xl border border-solid min-w-36 text-center">
+						<span class="bg-gradient-to-r from-[#7F60F9] to-[#00F0FF] bg-clip-text text-transparent font-medium">Login</span>
+				</a>
+			</div> -->
+		</section>
+
 </Layout>

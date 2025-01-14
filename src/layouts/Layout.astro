@@ -1,22 +1,209 @@
+---
+import "../style.css"
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={"ar"} dir={"rtl"}>
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content="تسويقنا يجعلك تضئ مثل نجم في سماؤك" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+		<!-- <meta name="generator" content={Astro.generator} /> -->
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+		<style>
+			html, body {
+				height: 100%;
+			}
+
+			body:before {
+				content: "";
+				height: 100vh;
+				width: 100vw;
+				position: fixed;
+				background-image: linear-gradient(to bottom right,#00F0FF, #7F60F9,#FBFCFF 75%);
+				top: 0;
+				z-index: -1;
+				opacity: 20%;
+			}
+
+			@keyframes wipe-in-down {
+			from {
+				clip-path: inset(0 0 100% 0);
+			}
+			to {
+				clip-path: inset(0 0 0 0);
+			}
+			}
+
+			[transition-style="in:wipe:down"] {
+			animation: .50s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+			}
+			.plyr {
+				--shadow-color: 197deg 32% 65%;
+				border-radius: 12px;
+				box-shadow: 0 .5px .6px hsl(var(--shadow-color) / .36), 0 1.7px 1.9px -.8px hsl(var(--shadow-color) / .36), 0 4.3px 4.8px -1.7px hsl(var(--shadow-color) / .36), -.1px 10.6px 11.9px -2.5px hsl(var(--shadow-color) / .36);
+				margin: 16px auto;
+			}
+			
+		</style>
 	</head>
-	<body>
+	<body class="bg-primary bg-no-repeat bg-cover">
+	<main>
+		<header class="w-full p-4 z-50 top-0 sticky">
+			<div class="w-full flex justify-center">
+				<nav class="relative bg-white drop-shadow-sm shadow-sm shadow-gray-200 w-[95%] lg:w-[90%] rounded-2xl mt-8 flex justify-between items-center p-4">
+					<div class="flex gap-12">
+						<img src="/logo.jpg" class="h-8">
+					</div>
+					<div class="justify-center items-center hidden lg:flex md:flex">
+						<a href="#login">
+							<span class="mx-3">
+								عنا
+							</span>
+							</a>
+						<a href="#login">
+							<span class="mx-3">
+								خدماتنا
+							</span>
+						</a>
+						<a href="#login">
+							<span class="mx-3">
+								كلمنا
+							</span>
+						</a>
+					</div>
+						<details class="appearance-none list-none lg:hidden md:hidden">
+							<summary class="appearance-none list-none [&::-webkit-details-marker]:hidden">
+									<svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 32 32">
+										<path fill="currentColor" d="M4 6h24v2H4zm0 18h24v2H4zm0-12h24v2H4zm0 6h24v2H4z"/>
+									</svg>
+							</summary>
+							<div transition-style="in:wipe:down" class="absolute right-0 left-0 bg-white py-3 mt-2 rounded-b-lg">
+								<ul class="list-none text-start mx-4 gap-3 font-bold flex flex-col">
+									<li>
+										<a href="#login">
+											<span class="mx-1 text-[#03cfd8]">
+												عنا
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="#login">
+											<span class="mx-1 text-[#f338a4]">
+												خدماتنا
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="#login">
+											<span class="mx-1 text-[#110a8f]">
+												كلمنا
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</details>
+				</nav>
+			</div>
+		</header>
 		<slot />
+		<footer class="grid lg:grid-cols-4 grid-cols-2 p-4 bg-[#fbfcff]">
+			<div class="px-4 flex flex-col gap-3 items-start">
+				<img class="h-8" src="/logo.jpg">
+				<span class="text-sm font-light">
+					زومن، شريكك الإستراتيجي للتميز والنجاح
+					<br />
+					نقدم حلولًا تسويقية متكاملة
+				</span>
+				<div class="flex flex-row gap-3 my-4">
+					<a href="https://x.com/doclabsai">
+						<svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24">
+							<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m3 21l7.548-7.548M21 3l-7.548 7.548m0 0L8 3H3l7.548 10.452m2.904-2.904L21 21h-5l-5.452-7.548" 
+							color="currentColor"/>
+						</svg>
+					</a>
+					<a href="https://www.instagram.com/doclabsai">
+						<svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24">
+							<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12"/>
+							<path d="M16.5 12a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0m1.008-5.5h-.01"/></g>
+						</svg>
+					</a>
+				</div>
+			</div>
+			<div class="px-4 flex flex-col gap-1 items-start">
+				<h3 class="text-base font-bold">
+					الشركة
+				</h3>
+				<ul class="list-none items-start gap-2 flex flex-col text-sm">
+					<li><a href="#">عنا</a></li>
+					<li><a href="#">خدماتنا</a></li>
+					<li><a href="#">كلمنا</a></li>
+				</ul>
+			</div>
+			<div class="px-4 flex flex-col gap-1 items-start">
+				<!-- <h3 class="text-base font-bold">
+					Resources
+				</h3>
+				<ul class="list-none items-start gap-2 flex flex-col text-sm">
+					<li><a href="https://www.youtube.com/@DocLabs">Youtube</a></li>
+					<li><a href="#">Brodcast</a></li>
+				</ul> -->
+			</div>
+			<!-- <div class="px-4 flex flex-col gap-1 items-start">
+				<ul class="list-none items-start gap-2 flex flex-col text-sm">
+					<il>
+						<div class="inline-flex items-center">
+							<svg class="size-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M6.66406 5.33398C4.45492 5.33398 2.66406 7.12485 2.66406 9.33398V22.6673C2.66406 24.8765 4.45492 26.6673 6.66406 26.6673H25.3307C27.5399 26.6673 29.3307 24.8765 29.3307 22.6673V9.33398C29.3307 7.12485 27.5399 5.33398 25.3307 5.33398H6.66406ZM6.43142 8.02088C6.50696 8.00758 6.5847 8.00065 6.66406 8.00065H25.3307C25.4101 8.00065 25.4878 8.00759 25.5634 8.02088L15.9974 14.3982L6.43142 8.02088ZM5.33073 10.492V22.6673C5.33073 23.4037 5.92768 24.0007 6.66406 24.0007H25.3307C26.0671 24.0007 26.6641 23.4037 26.6641 22.6673V10.492L16.737 17.1101C16.2891 17.4087 15.7057 17.4087 15.2578 17.1101L5.33073 10.492Z" fill="#9F9F9F"/>
+							</svg> 
+							<span class="font-medium">
+								Mail
+							</span>
+						</div>
+						<div>
+							<a class="pl-7 text-[#4267FF]" href="mailto:help@doclabs.app">
+								help@doclabs.app
+							</a>
+						</div>
+					</il>
+					<il>
+						<div class="inline-flex items-center">
+							<svg class="size-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M15.9974 5.33268C12.3155 5.33268 9.33073 8.31745 9.33073 11.9993C9.33073 15.7165 11.4797 21.1558 15.9974 26.0731C20.5151 21.1558 22.6641 15.7165 22.6641 11.9993C22.6641 8.31745 19.6793 5.33268 15.9974 5.33268ZM6.66406 11.9993C6.66406 6.84469 10.8427 2.66602 15.9974 2.66602C21.1521 2.66602 25.3307 6.84469 25.3307 11.9993C25.3307 16.8689 22.4448 23.4376 16.9402 28.9422C16.4195 29.4629 15.5753 29.4629 15.0546 28.9422C9.54999 23.4376 6.66406 16.8689 6.66406 11.9993Z" fill="#9F9F9F"/>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M15.9974 13.3327C16.7338 13.3327 17.3307 12.7357 17.3307 11.9993C17.3307 11.263 16.7338 10.666 15.9974 10.666C15.261 10.666 14.6641 11.263 14.6641 11.9993C14.6641 12.7357 15.261 13.3327 15.9974 13.3327ZM15.9974 15.9993C18.2065 15.9993 19.9974 14.2085 19.9974 11.9993C19.9974 9.79021 18.2065 7.99935 15.9974 7.99935C13.7883 7.99935 11.9974 9.79021 11.9974 11.9993C11.9974 14.2085 13.7883 15.9993 15.9974 15.9993Z" fill="#9F9F9F"/>
+							</svg>
+							<span class="font-medium">
+								Address
+							</span>
+						</div>
+						<div>
+							<p class="pl-7 text-[#4267FF] w-full text-xs" dir="rtl">
+								4019 طريق الملك
+								عبدالله،
+								8522، الرائد،
+								الرياض 12354
+							</p>
+						</div>
+					</il>
+				</ul>
+			</div> -->
+		</footer>
+	</main>
+		<script is:inline src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+		<script is:raw>
+			const player = new Plyr('#player');
+		</script>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
